@@ -37,4 +37,13 @@
   }
 }
 
+.sidebar {
+  position: absolute;
+  left: 0px; 
+  width: 300px;
+  height:300px;
+  font-size: 30px;
+  
+}
+
 

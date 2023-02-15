@@ -26,7 +26,7 @@ const todoItems = [
 
 function App() {
   return (
-    <div>
+    <div className='sidebar'>
 
       <Navigation
               style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}
@@ -37,7 +37,7 @@ function App() {
               }}
               items={[
                 {
-                  title: 'Dashboard',
+                  title: 'Todo app',
                   itemId: '/dashboard',
                   // you can use your own custom Icon component as well
                   // icon is optional
