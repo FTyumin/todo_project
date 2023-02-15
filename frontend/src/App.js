@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { Component } from "react";
+import {Navigation} from 'react-minimal-side-navigation';
+import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css';
 
 const todoItems = [
   {id:1,
@@ -17,34 +19,63 @@ const todoItems = [
 },
 
 ]
-class App extends Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      viewCompleted:false,
-      todoList: todoItems,
-    }
-  }
-}
+
+
+  
+
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <div>
+
+      <Navigation
+              style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}
+              // you can use your own router's api to get pathname
+              activeItemId="/management/members"
+              onSelect={({itemId}) => {
+                // maybe push to the route
+              }}
+              items={[
+                {
+                  title: 'Dashboard',
+                  itemId: '/dashboard',
+                  // you can use your own custom Icon component as well
+                  // icon is optional
+                  elemBefore: () => <label name="inbox" />,
+                },
+                {
+                  title: 'ToDo',
+                  itemId: '/todo',
+                  elemBefore: () => <label name="users" />,
+                  subNav: [
+                    {
+                      title: 'Tasks',
+                      itemId: '/management/projects',
+                    },
+                    {
+                      title: 'Members',
+                      itemId: '/management/members',
+                    },
+                  ],
+                },
+                {
+                  title: 'Another Item',
+                  itemId: '/another',
+                  subNav: [
+                    {
+                      title: 'example',
+                      itemId: '/management/example',
+                    },
+                  ],
+                },
+              ]}
+            />
+
+          </div>
+
+    
+      
+  )
 }
 
 export default App;
