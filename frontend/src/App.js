@@ -1,6 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { Component } from "react";
 
+const todoItems = [
+  {id:1,
+  title:"Lorem ipsum",
+  description:"Test 1",
+  completed:false,
+  due_date:"16.02"
+},
+{id:2,
+  title:"Lorem ipsum smth random",
+  description:"Test 2",
+  completed:false,
+  due_date:"16.02"
+},
+
+]
+class App extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      viewCompleted:false,
+      todoList: todoItems,
+    }
+  }
+}
 function App() {
   return (
     <div className="App">
