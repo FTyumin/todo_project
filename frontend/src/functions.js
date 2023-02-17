@@ -1,5 +1,8 @@
 import React, { Component } from "react";
-function Program() {
+import {Button, Card, Form} from 'react-bootstrap';
+
+
+export function Program() {
     const [todos, setTodos] = React.useState([
       {
         text: "This is a sampe todo",
@@ -8,11 +11,11 @@ function Program() {
     ])
 }
 
-function Todo({ todo, index, markTodo, removeTodo }) {
+export function Todo({ todo, index, markTodo, removeTodo }) {
     return (
       <div
-        className="todo"
-        
+      className="todo"
+      
       >
         <span style={{ textDecoration: todo.isDone ? "line-through" : "" }}>{todo.text}</span>
         <div>
@@ -23,7 +26,30 @@ function Todo({ todo, index, markTodo, removeTodo }) {
     );
 }
 
-export default Program;Todo
+export function FormTodo({ addTodo }) {
+    const [value, setValue] = React.useState("");
+  
+    const handleSubmit = e => {
+      e.preventDefault();
+      if (!value) return;
+      addTodo(value);
+      setValue("");
+    };
+  
+    return (
+      <Form onSubmit={handleSubmit}> 
+      <Form.Group>
+        <Form.Label><b>Add Todo</b></Form.Label>
+        <Form.Control type="text" className="input" value={value} onChange={e => setValue(e.target.value)} placeholder="Add new todo" />
+      </Form.Group>
+      <Button variant="primary mb-3" type="submit">
+        Submit
+      </Button>
+    </Form>
+    );
+  }
+
+
 
 
 

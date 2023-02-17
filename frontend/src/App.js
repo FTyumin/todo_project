@@ -5,8 +5,7 @@ import {Navigation} from 'react-minimal-side-navigation';
 import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css';
 import {Button, Card, Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Todo from "./functions";
-import Program from "./functions";
+import {Program, Todo, FormTodo} from "./functions"
 
 const todoItems = [
   {id:1,
@@ -21,8 +20,9 @@ const todoItems = [
   completed:false,
   due_date:"16.02"
 },
-
 ]
+
+
 
 const addTodo = text => {
   const newTodos = [...todos, { text }];
@@ -45,52 +45,75 @@ const removeTodo = index => {
 function App() {
   return (
     <div>
+      <div className="app">
+        <div className="container">
+          <h1 className="text-center mb-4">Todo List</h1>
+          <FormTodo addTodo={addTodo} />
+          <div>
+            {todos.map((todo, index) => (
+              <Card>
+                <Card.Body>
+                  <Todo
+                  key={index}
+                  index={index}
+                  todo={todo}
+                  markTodo={markTodo}
+                  removeTodo={removeTodo}
+                  />
+                </Card.Body>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
       <div className='sidebar'>
 
-        <Navigation
-                style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}
-                // you can use your own router's api to get pathname
-                activeItemId="/management/members"
-                onSelect={({itemId}) => {
-                  // maybe push to the route
-                }}
-                items={[
-                  {
-                    title: 'Todo app',
-                    itemId: '/dashboard',
-                    // you can use your own custom Icon component as well
-                    // icon is optional
-                    elemBefore: () => <label name="inbox" />,
-                  },
-                  {
-                    title: 'ToDo',
-                    itemId: '/todo',
-                    elemBefore: () => <label name="users" />,
-                    subNav: [
-                      {
-                        title: 'Tasks',
-                        itemId: '/management/projects',
-                      },
-                      {
-                        title: 'Members',
-                        itemId: '/management/members',
-                      },
-                    ],
-                  },
-                  {
-                    title: 'Chat',
-                    itemId: '/another',
-                    subNav: [
-                      {
-                        title: 'example',
-                        itemId: '/management/example',
-                      },
-                    ],
-                  },
-                ]}
-              />
+      <Navigation
+              style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}
+              
+              activeItemId="/management/members"
+              onSelect={({itemId}) => {
+                
+              }}
+              items={[
+                {
+                  title: 'Todo app',
+                  itemId: '/dashboard',
+                
+                  elemBefore: () => <label name="inbox" />,
+                },
+                {
+                  title: 'ToDo',
+                  itemId: '/todo',
+                  elemBefore: () => <label name="users" />,
+                  subNav: [
+                    {
+                      title: 'Tasks',
+                      itemId: '',
+                    },
+                    {
+                      title: 'Members',
+                      itemId: '',
+                    },
+                  ],
+                },
+                {
+                  title: 'Chat',
+                  itemId: '',
+                  subNav: [
+                    {
+                      title: 'example',
+                      itemId: '',
+                    },
+                  ],
+                },
+              ]}
+            />
 
-            </div>
+          </div>
+      
+                  
+                    
     </div>
 
     
