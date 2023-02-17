@@ -1,15 +1,8 @@
-import React, { Component } from "react";
+import React, { Component,useState } from "react";
 import {Button, Card, Form} from 'react-bootstrap';
 
 
-export function Program() {
-    const [todos, setTodos] = React.useState([
-      {
-        text: "This is a sampe todo",
-        isDone: false
-      }
-    ])
-}
+
 
 export function Todo({ todo, index, markTodo, removeTodo }) {
     return (
@@ -27,7 +20,7 @@ export function Todo({ todo, index, markTodo, removeTodo }) {
 }
 
 export function FormTodo({ addTodo }) {
-    const [value, setValue] = React.useState("");
+    const [value, setValue] = useState("");
   
     const handleSubmit = e => {
       e.preventDefault();

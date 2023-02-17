@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { Component } from "react";
+import React, { Component,createContext,useState } from "react";
 import {Navigation} from 'react-minimal-side-navigation';
 import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css';
 import {Button, Card, Form} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Program, Todo, FormTodo} from "./functions"
+import {Todo, FormTodo} from "./functions"
 
 const todoItems = [
   {id:1,
@@ -21,6 +21,17 @@ const todoItems = [
   due_date:"16.02"
 },
 ]
+
+const ProgramContext = createContext([])
+
+function ProgramProvider({children}) {
+   const [todos, setTodos] = useState([
+    {
+      text: "This is a sampe todo",
+      isDone: false
+    }
+  ])
+}
 
 
 
@@ -43,7 +54,10 @@ const removeTodo = index => {
 
 
 function App() {
+
   return (
+  
+
     <div>
       <div className="app">
         <div className="container">
