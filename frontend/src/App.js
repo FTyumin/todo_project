@@ -1,138 +1,75 @@
-import './App.css';
-import React, { Component,createContext,useState } from "react";
-import {Navigation} from 'react-minimal-side-navigation';
-import 'react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css';
-import {Button, Card, Form} from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import {Todo, FormTodo} from "./functions"
-
-const todoItems = [
-  {id:1,
-  title:"Lorem ipsum",
-  description:"Test 1",
-  completed:false,
-  due_date:"16.02"
-},
-{id:2,
-  title:"Lorem ipsum smth random",
-  description:"Test 2",
-  completed:false,
-  due_date:"16.02"
-},
-]
+import { useState } from "react";
+import styled from "styled-components";
+import "./index.css";
 
 
-
-function Program() {
-   const [todos, setTodos] = useState([
-    {
-      text: "This is a sampe todo",
-      isDone: false
-    }
-  ])
-
-
-
-
-  const addTodo = text => {
-    const newTodos = [...todos, { text }]
-    setTodos(newTodos)
+const App = () => {
+  const [input, setInput] = useState("");
+  const [completedTaskCount, setCompletedTaskCount] = useState(0);
+  const [todoList, setTodoList] = useState([])
+const handleClick = () => {
+    const id = todoList.length + 1
+    setTodoList((prev) => [
+      ...prev,
+      {
+        id: id,
+        task: input,
+        complete: false,
+      }
+    ]);
+    setInput("")
+  };
+  const handleComplete = (id) => {
+    let list = todoList.map((task) => {
+      let item = {}
+      if (task.id == id) {
+        if (!task.complete){
+            setCompletedTaskCount(completedTaskCount + 1)
+        } 
+        else {
+            setCompletedTaskCount(completedTaskCount - 1)
+        }
+item = { ...task, complete: !task.complete }
+      } else item = { ...task }
+return item
+    })
+    setTodoList(list)
   }
-
-  const markTodo = index => {
-    const newTodos = [...todos]
-    newTodos[index].isDone = true
-    setTodos(newTodos)
-  }
-
-  const removeTodo = index => {
-    const newTodos = [...todos]
-    newTodos.splice(index, 1)
-    setTodos(newTodos)
-  }  
-}
-
-
-function App() {
-
-  return (
-  
-
-    <div>
-      <div className="app">
-        <div className="container">
-          <h1 className="text-center mb-4">Todo List</h1>
-          <FormTodo addTodo={addTodo} />
-          <div>
-            {todos.map((todo, index) => (
-              <Card>
-                <Card.Body>
-                  <Todo
-                  key={index}
-                  index={index}
-                  todo={todo}
-                  markTodo={markTodo}
-                  removeTodo={removeTodo}
-                  />
-                </Card.Body>
-              </Card>
-            ))}
-          </div>
+return (
+    <Container>
+      <div>
+          <h2>Todo List</h2>
+          <Text value={input} onInput={(e) =>setInput(e.target.value)} />
+          <Button onClick={() => handleClick()}>Add</Button>
+        <Tasks>
+          <TaskCount>
+            <b>Pending Tasks</b> {todoList.length - completedTaskCount}
+          </TaskCount>
+          <TaskCount>
+            <b>Completed Tasks</b> {completedTaskCount}
+          </TaskCount>
+        </Tasks>
+        <div>
+          <ul>
+            {todoList.map((todo) => {
+              return (
+                <LIST
+                  complete = {todo.complete}
+                  id={todo.id}
+                  onClick={() => handleComplete(todo.id)}
+                  style={{
+                    listStyle: "none",
+                    textDecoration: todo.complete && "line-through",
+                  }}
+                >
+                  {todo.task}
+                </LIST>
+              );
+            })}
+          </ul>
         </div>
       </div>
-      <div className='sidebar'>
-
-      <Navigation
-              style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}
-              
-              activeItemId="/management/members"
-              onSelect={({itemId}) => {
-                
-              }}
-              items={[
-                {
-                  title: 'Todo app',
-                  itemId: '/dashboard',
-                
-                  elemBefore: () => <label name="inbox" />,
-                },
-                {
-                  title: 'ToDo',
-                  itemId: '/todo',
-                  elemBefore: () => <label name="users" />,
-                  subNav: [
-                    {
-                      title: 'Tasks',
-                      itemId: '',
-                    },
-                    {
-                      title: 'Members',
-                      itemId: '',
-                    },
-                  ],
-                },
-                {
-                  title: 'Chat',
-                  itemId: '',
-                  subNav: [
-                    {
-                      title: 'example',
-                      itemId: '',
-                    },
-                  ],
-                },
-              ]}
-            />
-
-          </div>
-      
-                  
-                    
-    </div>
-
-    
-      
-  )
-}
-
+    </Container>
+  );
+};
 export default App;
