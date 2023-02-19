@@ -66,9 +66,12 @@ return item
     setTodoList(list)
   }
 return (
+  <div>
+    
+      
     <Container>
       <div>
-          <h2>Todo List</h2>
+          <h1>Todo List</h1>
           <Text value={input} onInput={(e) =>setInput(e.target.value)} />
           <Button onClick={() => handleClick()}>Add</Button>
         <Tasks>
@@ -94,15 +97,25 @@ return (
                 >
                   {todo.task}
                 </LIST>
-              );
+              )
             })}
           </ul>
         </div>
       </div>
+
+      
       
               
             
     </Container>
+
+  </div>
+
+    
+
+
+         
+   
   )
 }
 export default App;
