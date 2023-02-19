@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React, { Component,createContext,useState } from "react";
 import {Navigation} from 'react-minimal-side-navigation';
@@ -22,35 +21,36 @@ const todoItems = [
 },
 ]
 
-const ProgramContext = createContext([])
 
-function ProgramProvider({children}) {
+
+function Program() {
    const [todos, setTodos] = useState([
     {
       text: "This is a sampe todo",
       isDone: false
     }
   ])
+
+
+
+
+  const addTodo = text => {
+    const newTodos = [...todos, { text }]
+    setTodos(newTodos)
+  }
+
+  const markTodo = index => {
+    const newTodos = [...todos]
+    newTodos[index].isDone = true
+    setTodos(newTodos)
+  }
+
+  const removeTodo = index => {
+    const newTodos = [...todos]
+    newTodos.splice(index, 1)
+    setTodos(newTodos)
+  }  
 }
-
-
-
-const addTodo = text => {
-  const newTodos = [...todos, { text }];
-  setTodos(newTodos);
-}
-
-const markTodo = index => {
-  const newTodos = [...todos];
-  newTodos[index].isDone = true;
-  setTodos(newTodos);
-}
-
-const removeTodo = index => {
-  const newTodos = [...todos];
-  newTodos.splice(index, 1);
-  setTodos(newTodos);
-}  
 
 
 function App() {
