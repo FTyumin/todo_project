@@ -1,7 +1,37 @@
 import { useState } from "react";
 import styled from "styled-components";
+import {Navigation} from 'react-minimal-side-navigation';
 import "./index.css";
 
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+const Button = styled.button`
+  display:inline-block;
+  flex: 1;
+  border: none;
+  background-color: teal;
+  color: white;
+  height: 30px;
+  width: 50px;
+  border-radius: 2px;
+  cursor: pointer;
+`;
+const Text = styled.input`
+  border: 2px solid #000;
+`;
+const Tasks = styled.div`
+`;
+const TaskCount = styled.span`
+  margin: 10px;
+`;
+
+const LIST = styled.li`
+    listStyle:"none";
+    text-decoration: "line-through";
+`;
 
 const App = () => {
   const [input, setInput] = useState("");
@@ -16,9 +46,9 @@ const handleClick = () => {
         task: input,
         complete: false,
       }
-    ]);
+    ])
     setInput("")
-  };
+  }
   const handleComplete = (id) => {
     let list = todoList.map((task) => {
       let item = {}
@@ -69,7 +99,10 @@ return (
           </ul>
         </div>
       </div>
+      
+              
+            
     </Container>
-  );
-};
+  )
+}
 export default App;
