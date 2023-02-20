@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import "./index.css";
+import SideBar from "./sideBar";
 
 
 
@@ -70,7 +71,7 @@ return item
   }
 return (
   <div>
-    
+    <SideBar/>
       
     <Container>
       <div className="main">
@@ -107,9 +108,6 @@ return (
       </div>
 
       
-      
-              
-            
     </Container>
 
   </div>

@@ -18,12 +18,13 @@ code {
 .sidebar {
   position: absolute;
   left: 0px; 
-  margin-top: 200px;
+  margin-top: 0px;
   width: 300px;
-  height:100%;
   font-size: 30px;
   display: flex;
   
+  
 }
+
 
 
