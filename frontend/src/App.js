@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import "./index.css";
-import SideBar from "./sideBar";
+import SideBar from "./pages/sideBar";
 
 
 

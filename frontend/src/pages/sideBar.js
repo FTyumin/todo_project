@@ -1,7 +1,8 @@
 import { Sidebar, Menu, MenuItem, useProSidebar } from "react-pro-sidebar";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
-import "./index.css";
+import "../index.css";
+import { BrowserRouter, Route, Link } from "react-router-dom";
 
 
 export default function SideBar() {
@@ -10,6 +11,7 @@ export default function SideBar() {
     return (
         <div className="sidebar">
             <Sidebar style={{ height: "100vh" }}>
+        
         <Menu>
           <MenuItem
             icon={<MenuOutlinedIcon />}
@@ -25,11 +27,17 @@ export default function SideBar() {
             icon={<LoginOutlinedIcon/>}
             style={{ textAlign: "center" }}
           >
-            <h2>Login</h2>
+            
+            <a href="/login">
+              <h2>Login</h2>
+            </a>
             
           </MenuItem>
+          
         </Menu>
+        
       </Sidebar>
+
         </div>
     )
 }
