@@ -22,9 +22,13 @@ code {
   width: 300px;
   font-size: 30px;
   display: flex;
+  background: antiquewhite;
+  height: 100vh;
   
   
 }
+
+
 
 
 

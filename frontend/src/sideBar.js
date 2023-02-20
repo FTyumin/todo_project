@@ -16,15 +16,17 @@ export default function SideBar() {
             onClick={() => {
               collapseSidebar();
             }}
-            style={{ textAlign: "center" }}
+            style={{ textAlign: "center"}}
           >
             {" "}
             <h2>Menu</h2>
           </MenuItem>
           <MenuItem
             icon={<LoginOutlinedIcon/>}
+            style={{ textAlign: "center" }}
           >
             <h2>Login</h2>
+            
           </MenuItem>
         </Menu>
       </Sidebar>
