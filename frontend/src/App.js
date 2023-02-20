@@ -1,7 +1,7 @@
-import { useState } from "react";
-import styled from "styled-components";
-import "./index.css";
-import SideBar from "./pages/sideBar";
+import { useState } from "react"
+import styled from "styled-components"
+import "./index.css"
+import SideBar from "./pages/sideBar"
 
 
 
@@ -9,7 +9,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-`;
+`
 const Button = styled.button`
   display:inline-block;
   flex: 1;
@@ -20,20 +20,20 @@ const Button = styled.button`
   width: 50px;
   border-radius: 2px;
   cursor: pointer;
-`;
+`
 const Text = styled.input`
   border: 2px solid #000;
-`;
+`
 const Tasks = styled.div`
-`;
+`
 const TaskCount = styled.span`
   margin: 10px;
-`;
+`
 
 const LIST = styled.li`
   listStyle:"none";
   text-decoration: "line-through";
-`;
+`
 
 
 
@@ -119,4 +119,4 @@ return (
    
   )
 }
-export default App;
+export default App
