@@ -70,7 +70,7 @@ return (
     
       
     <Container>
-      <div>
+      <div className="main">
           <h1>Todo List</h1>
           <Text value={input} onInput={(e) =>setInput(e.target.value)} />
           <Button onClick={() => handleClick()}>Add</Button>
