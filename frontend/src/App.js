@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
-import {Navigation} from 'react-minimal-side-navigation';
 import "./index.css";
+
+
 
 const Container = styled.div`
   display: flex;
@@ -29,9 +30,11 @@ const TaskCount = styled.span`
 `;
 
 const LIST = styled.li`
-    listStyle:"none";
-    text-decoration: "line-through";
+  listStyle:"none";
+  text-decoration: "line-through";
 `;
+
+
 
 const App = () => {
   const [input, setInput] = useState("");
@@ -52,7 +55,7 @@ const handleClick = () => {
   const handleComplete = (id) => {
     let list = todoList.map((task) => {
       let item = {}
-      if (task.id == id) {
+      if (task.id === id) {
         if (!task.complete){
             setCompletedTaskCount(completedTaskCount + 1)
         } 
