@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
 import App from './App'
+import Layout from './pages/layout'
 import reportWebVitals from './reportWebVitals'
 import { ProSidebarProvider } from "react-pro-sidebar"
 import Login from './pages/login';
@@ -12,7 +13,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="home" element={<App />}/>
+      <Route path="home" element={<Layout />}/>
       <Route path="login" element={<Login />}/>
     </Routes>
   </BrowserRouter>
