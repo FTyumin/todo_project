@@ -27,7 +27,10 @@ export default function SideBar() {
             icon={<LoginOutlinedIcon/>}
             style={{ textAlign: "center" }}
           >
-            <Link to="/login" className="link">
+            <Link to="/login" 
+            className="link"
+            style={{textDecoration:"none"}}
+            >
               <h2>
                 Login
               </h2>

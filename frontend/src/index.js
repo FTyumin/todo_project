@@ -1,22 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from 'react'
+import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { ProSidebarProvider } from "react-pro-sidebar"
 import Login from './pages/login';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-    <React.StrictMode>
-      <ProSidebarProvider>
-        <App />
-      </ProSidebarProvider>
-    </React.StrictMode>  
-    
+    <Routes>
+      <Route path="home" element={<App />}/>
+      <Route path="login" element={<Login />}/>
+    </Routes>
   </BrowserRouter>
 );
 
