@@ -6,15 +6,18 @@ import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { ProSidebarProvider } from "react-pro-sidebar"
 import Login from './pages/login';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <ProSidebarProvider>
-      <App />
-    </ProSidebarProvider>
-    
-  </React.StrictMode>
+  <BrowserRouter>
+    <React.StrictMode>
+      <ProSidebarProvider>
+        <App />
+      </ProSidebarProvider>
+      
+    </React.StrictMode>
+  </BrowserRouter>
 );
 
 
