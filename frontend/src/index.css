@@ -5,9 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: antiquewhite;
   height: 100vh;
-  background: antiquewhite;
+  color: antiquewhite;
+  
 }
 
 code {
@@ -22,7 +22,6 @@ code {
   width: 300px;
   font-size: 30px;
   display: flex;
-  background: antiquewhite;
   height: 100vh;
   
   
@@ -31,6 +30,10 @@ code {
 a {
   color: black;
   text-decoration: none;
+}
+
+div{
+  background-color: antiquewhite;
 }
 
 
