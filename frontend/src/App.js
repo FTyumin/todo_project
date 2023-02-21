@@ -35,6 +35,11 @@ const LIST = styled.li`
   text-decoration: "line-through";
 `
 
+const PageWrapper = styled.div`
+  background-color: antiquewhite;
+  height: 100vh;
+`;
+
 
 
 const App = () => {
@@ -70,6 +75,7 @@ return item
     setTodoList(list)
   }
 return (
+  <PageWrapper>
   <div>
     <SideBar/>
       
@@ -107,12 +113,12 @@ return (
         </div>
       </div>
 
-      
+       
     </Container>
 
-  </div>
+ </div>
 
-    
+    </PageWrapper>
 
 
          
