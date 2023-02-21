@@ -2,10 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
-import App from './App'
 import Layout from './pages/layout'
 import reportWebVitals from './reportWebVitals'
-import { ProSidebarProvider } from "react-pro-sidebar"
 import Login from './pages/login';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 

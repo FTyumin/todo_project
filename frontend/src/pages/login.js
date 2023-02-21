@@ -6,11 +6,15 @@ import Button from "react-bootstrap/Button";
 
 import "../index.css";
 
+import SideBar from "./sideBar";
+
 export default function Login() {
 
   const [email, setEmail] = useState("");
 
   const [password, setPassword] = useState("");
+
+  
 
   function validateForm() {
 
@@ -25,54 +29,58 @@ export default function Login() {
   }
 
   return (
+    <>
+    
+      <div className="Login">
+        
+        <Form onSubmit={handleSubmit}>
 
-    <div className="Login">
+          <Form.Group size="lg" controlId="email">
 
-      <Form onSubmit={handleSubmit}>
+            <Form.Label>Email</Form.Label>
 
-        <Form.Group size="lg" controlId="email">
+            <Form.Control
 
-          <Form.Label>Email</Form.Label>
+              autoFocus
 
-          <Form.Control
+              type="email"
 
-            autoFocus
+              value={email}
 
-            type="email"
+              onChange={(e) => setEmail(e.target.value)}
 
-            value={email}
+            />
 
-            onChange={(e) => setEmail(e.target.value)}
+          </Form.Group>
 
-          />
+          <Form.Group size="lg" controlId="password">
 
-        </Form.Group>
+            <Form.Label>Password</Form.Label>
 
-        <Form.Group size="lg" controlId="password">
+            <Form.Control
 
-          <Form.Label>Password</Form.Label>
+              type="password"
 
-          <Form.Control
+              value={password}
 
-            type="password"
+              onChange={(e) => setPassword(e.target.value)}
 
-            value={password}
+            />
 
-            onChange={(e) => setPassword(e.target.value)}
+          </Form.Group>
 
-          />
+          <Button block size="lg" type="submit" disabled={!validateForm()}>
 
-        </Form.Group>
+            Login
 
-        <Button block size="lg" type="submit" disabled={!validateForm()}>
+          </Button>
 
-          Login
+        </Form>
 
-        </Button>
+      </div>
+    </>
 
-      </Form>
-
-    </div>
+    
 
   );
 
