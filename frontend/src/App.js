@@ -38,7 +38,7 @@ const LIST = styled.li`
 const PageWrapper = styled.div`
   background-color: antiquewhite;
   height: 100vh;
-`;
+`
 
 
 
