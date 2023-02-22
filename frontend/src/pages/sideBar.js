@@ -21,7 +21,7 @@ export default function SideBar() {
             style={{ textAlign: "center"}}
           >
             {" "}
-            <h2>Menu</h2>
+            
           </MenuItem>
           <MenuItem
             icon={<LoginOutlinedIcon/>}

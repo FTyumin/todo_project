@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState } from "react"
 
-import Form from "react-bootstrap/Form";
+import Form from "react-bootstrap/Form"
 
-import Button from "react-bootstrap/Button";
+import Button from "react-bootstrap/Button"
 
-import "../index.css";
+import "../index.css"
 
-import SideBar from "./sideBar";
+import SideBar from "./sideBar"
+import styled from "styled-components"
 
 export default function Login() {
 
@@ -28,11 +29,27 @@ export default function Login() {
 
   }
 
+  const PageWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+`
+
+const LoginFormWrapper = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+
   return (
-    <>
     
+      
+      
       <div className="Login">
-        
+      
+        <SideBar/>
         <Form onSubmit={handleSubmit}>
 
           <Form.Group size="lg" controlId="email">
@@ -76,9 +93,13 @@ export default function Login() {
           </Button>
 
         </Form>
+        
 
       </div>
-    </>
+      
+   
+     
+    
 
     
 
