@@ -46,10 +46,11 @@ const LoginFormWrapper = styled.div`
   return (
     
       
-      
+    <> 
+    
       <div className="Login">
       
-        <SideBar/>
+        
         <Form onSubmit={handleSubmit}>
 
           <Form.Group size="lg" controlId="email">
@@ -96,7 +97,7 @@ const LoginFormWrapper = styled.div`
         
 
       </div>
-      
+      </>   
    
      
     
