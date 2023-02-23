@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Link, NavLink,ROuter } from "react-router-dom";
 // ? https://www.npmjs.com/package/react-pro-sidebar
 import { Sidebar, Menu, MenuItem, useProSidebar } from "react-pro-sidebar";
-import "../index.css";
+import "../css/sidebar.css";
 
 /**
  * * Icon Imports
@@ -24,8 +24,7 @@ export default function SideBar() {
               collapseSidebar();
             }}
             style={{ textAlign: "center"}}
-          >
-          {" "}
+          > 
           </MenuItem>
 
           {/* Home button */}

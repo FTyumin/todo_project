@@ -1,0 +1,9 @@
+.sidebar {
+    position: absolute;
+    left: 0px; 
+    margin-top: 0px;
+    width: 300px;
+    font-size: 30px;
+    display: flex;
+    height: 100vh;
+  }

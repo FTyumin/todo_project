@@ -1,9 +1,9 @@
 import { useState } from "react"
-import styled from "styled-components"
-import "../index.css"
-import SideBar from "../components/sideBar"
 // ? https://www.npmjs.com/package/react-pro-sidebar
 import { ProSidebarProvider } from "react-pro-sidebar"
+import styled from "styled-components"
+import SideBar from "../components/sideBar"
+import "../css/home.css"
 
 const Container = styled.div`
   display: flex;
@@ -39,7 +39,7 @@ const PageWrapper = styled.div`
   background-color: antiquewhite;
   height: 100vh;
 `
-const App = () => {
+const Home = () => {
   const [input, setInput] = useState("");
   const [completedTaskCount, setCompletedTaskCount] = useState(0);
   const [todoList, setTodoList] = useState([])
@@ -121,4 +121,5 @@ const App = () => {
     </ProSidebarProvider>    
   )
 }
-export default App
+
+export default Home
