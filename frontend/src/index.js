@@ -6,6 +6,7 @@ import Layout from './pages/layout'
 import reportWebVitals from './reportWebVitals'
 import Login from './pages/login'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { ProSidebarProvider } from "react-pro-sidebar"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

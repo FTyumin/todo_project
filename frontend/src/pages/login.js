@@ -102,6 +102,7 @@ const LoginFormWrapper = styled.div`
       
       </PageWrapper>
       </ProSidebarProvider>
+     
       </>   
    
      
