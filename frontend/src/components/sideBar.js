@@ -29,32 +29,24 @@ export default function SideBar() {
 
           {/* Home button */}
           <MenuItem
+            className="navBtn"
             icon={<HomeOutlinedIcon/>}
-            style={{ textAlign: "center" }}
+            component = {<Link to="/"></Link>}
           >
-            <Link to="/" 
-            className="link"
-            style={{textDecoration:"none"}}
-            >
-              <h2>
-                Home
-              </h2>
-            </Link>
+            <h2>
+              Home
+            </h2>
           </MenuItem>
 
           {/* Login button */}
           <MenuItem
+            className="navBtn"
             icon={<LoginOutlinedIcon/>}
-            style={{ textAlign: "center" }}
+            component = {<Link to="/login"></Link>}
           >
-            <Link to="/login" 
-            className="link"
-            style={{textDecoration:"none"}}
-            >
-              <h2>
-                Login
-              </h2>
-            </Link>
+            <h2>
+              Login
+            </h2>
           </MenuItem>
         </Menu>
       </Sidebar>
