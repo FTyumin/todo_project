@@ -8,6 +8,7 @@ import "../index.css"
 
 import SideBar from "./sideBar"
 import styled from "styled-components"
+import { ProSidebarProvider } from "react-pro-sidebar"
 
 export default function Login() {
 
@@ -47,10 +48,11 @@ const LoginFormWrapper = styled.div`
     
       
     <> 
-    
+    <ProSidebarProvider>
+    <PageWrapper>
       <div className="Login">
       
-        
+        <SideBar/>
         <Form onSubmit={handleSubmit}>
 
           <Form.Group size="lg" controlId="email">
@@ -97,6 +99,9 @@ const LoginFormWrapper = styled.div`
         
 
       </div>
+      
+      </PageWrapper>
+      </ProSidebarProvider>
       </>   
    
      
