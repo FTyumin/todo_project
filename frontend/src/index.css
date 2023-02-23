@@ -7,7 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   height: 100vh;
   background-color: antiquewhite;
-  
 }
 
 code {
@@ -23,19 +22,10 @@ code {
   font-size: 30px;
   display: flex;
   height: 100vh;
-  
-  
 }
-
-
 
 div{
   background-color: antiquewhite;
-  display: flex;
-  flex-direction: row;
-  justify-items:center;
-  height: 100vh;
-  width:100%;
 }
 
 .login {
@@ -44,14 +34,4 @@ div{
   justify-items:center;
   height: 100vh;
   width:100%;
-
 }
-
-
-
-
-
-
-
-
-

@@ -4,15 +4,14 @@ import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import "../index.css";
 import { BrowserRouter, Route, Link, NavLink,ROuter } from "react-router-dom";
 
-
 export default function SideBar() {
-    const {collapseSidebar} = useProSidebar()
+  const {collapseSidebar} = useProSidebar()
 
-    return (
-        <div className="sidebar">
-            <Sidebar style={{ height: "100vh" }}>
-        
+  return (
+    <div className="sidebar">
+      <Sidebar style={{ height: "100vh" }}>
         <Menu>
+          {/* Sidebar burger */}
           <MenuItem
             icon={<MenuOutlinedIcon />}
             onClick={() => {
@@ -20,9 +19,10 @@ export default function SideBar() {
             }}
             style={{ textAlign: "center"}}
           >
-            {" "}
-            
+          {" "}
           </MenuItem>
+
+          {/* Login button */}
           <MenuItem
             icon={<LoginOutlinedIcon/>}
             style={{ textAlign: "center" }}
@@ -35,13 +35,9 @@ export default function SideBar() {
                 Login
               </h2>
             </Link>
-            
           </MenuItem>
-          
         </Menu>
-        
       </Sidebar>
-
-        </div>
-    )
+    </div>
+  )
 }
