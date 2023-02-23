@@ -33,7 +33,9 @@ export default function Login() {
   const PageWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  justify-items:center;
   height: 100vh;
+  width:100%;
 `
 
 const LoginFormWrapper = styled.div`
@@ -89,7 +91,7 @@ const LoginFormWrapper = styled.div`
 
           </Form.Group>
 
-          <Button block size="lg" type="submit" disabled={!validateForm()}>
+          <Button  size="lg" type="submit" disabled={!validateForm()}>
 
             Login
 
