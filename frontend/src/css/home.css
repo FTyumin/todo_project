@@ -1,0 +1,40 @@
+.pageWrapper {
+    background-color: antiquewhite;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main {
+    margin-top:8%;
+}
+
+.btn {
+    display:inline-block;
+    flex: 1;
+    border: none;
+    background-color: teal;
+    color: white;
+    height: 30px;
+    width: 50px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.txt {
+    border: 2px solid #000;
+}
+
+.taskCount {
+    margin: 10px;
+}
+
+.list {
+    list-style: "none";
+    text-decoration: "line-through";
+}
+

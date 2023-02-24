@@ -4,7 +4,6 @@ import { ProSidebarProvider } from "react-pro-sidebar"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import SideBar from "../components/sideBar"
-import styled from "styled-components"
 import "../css/login.css"
 
 export default function Login() {
@@ -19,18 +18,15 @@ export default function Login() {
     event.preventDefault();
   }
 
-  const PageWrapper = styled.div`
-    height: 100vh;
-    width: 100%;
-  `
-
   return (
     <> 
       <ProSidebarProvider>
-        <PageWrapper>
+        <div className="pageWrapper">
           <div>
         
+            {/* Sidebar */}
             <SideBar/>
+
             <Form onSubmit={handleSubmit} className="loginForm">
               <div>
                 <Form.Group size="lg" controlId="email">
@@ -52,13 +48,13 @@ export default function Login() {
                   />
                 </Form.Group>
 
-                <Button  size="lg" type="submit" disabled={!validateForm()}>
+                <Button className="btn" size="lg" type="submit" disabled={!validateForm()}>
                   Login
                 </Button>
               </div>
             </Form>
           </div>
-        </PageWrapper>
+        </div>
       </ProSidebarProvider>
     </>   
   );

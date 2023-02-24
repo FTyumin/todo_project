@@ -1,44 +1,9 @@
 import { useState } from "react"
 // ? https://www.npmjs.com/package/react-pro-sidebar
 import { ProSidebarProvider } from "react-pro-sidebar"
-import styled from "styled-components"
 import SideBar from "../components/sideBar"
 import "../css/home.css"
 
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-`
-const Button = styled.button`
-  display:inline-block;
-  flex: 1;
-  border: none;
-  background-color: teal;
-  color: white;
-  height: 30px;
-  width: 50px;
-  border-radius: 2px;
-  cursor: pointer;
-`
-const Text = styled.input`
-  border: 2px solid #000;
-`
-const Tasks = styled.div`
-`
-const TaskCount = styled.span`
-  margin: 10px;
-`
-
-const LIST = styled.li`
-  listStyle:"none";
-  text-decoration: "line-through";
-`
-
-const PageWrapper = styled.div`
-  background-color: antiquewhite;
-  height: 100vh;
-`
 const Home = () => {
   const [input, setInput] = useState("");
   const [completedTaskCount, setCompletedTaskCount] = useState(0);
@@ -76,48 +41,50 @@ const Home = () => {
 
   return (
     <ProSidebarProvider>
-        <PageWrapper>
+      <div className="pageWrapper">
         <div>
-            <SideBar/>
-            
-            <Container>
+          <SideBar/>
+          
+          <div className="container">
             <div className="main">
                 <h1>Todo List</h1>
-                <Text value={input} onInput={(e) =>setInput(e.target.value)} />
-                <Button onClick={() => handleClick()}>Add</Button>
+                <input className="txt" value={input} onInput={(e) =>setInput(e.target.value)} />
+                <button className="btn taskCount" onClick={() => handleClick()}>Add</button>
 
-                <Tasks>
-                <TaskCount>
+                <div>
+                  <span className="taskCount">
                     <b>Pending Tasks</b> {todoList.length - completedTaskCount}
-                </TaskCount>
-                <TaskCount>
+                  </span>
+
+                  <span className="taskCount">
                     <b>Completed Tasks</b> {completedTaskCount}
-                </TaskCount>
-                </Tasks>
+                  </span>
+                </div>
 
                 <div>
                 <ul>
-                    {todoList.map((todo) => {
-                    return (
-                        <LIST
-                        complete = {todo.complete}
-                        id={todo.id}
-                        onClick={() => handleComplete(todo.id)}
-                        style={{
-                            listStyle: "none",
-                            textDecoration: todo.complete && "line-through",
-                        }}
-                        >
-                        {todo.task}
-                        </LIST>
-                    )
-                    })}
+                  {todoList.map((todo) => {
+                  return (
+                    <li
+                    className="list"
+                    complete = {todo.complete}
+                    id={todo.id}
+                    onClick={() => handleComplete(todo.id)}
+                    style={{
+                        listStyle: "none",
+                        textDecoration: todo.complete && "line-through",
+                    }}
+                    >
+                      {todo.task}
+                    </li>
+                  )
+                  })}
                 </ul>
-                </div>
+              </div>
             </div>            
-            </Container>
+          </div>
         </div>
-        </PageWrapper>
+      </div>
     </ProSidebarProvider>    
   )
 }
