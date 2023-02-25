@@ -22,39 +22,41 @@ export default function Login() {
     <> 
       <ProSidebarProvider>
         <div className="pageWrapper">
-          <div>
+          
         
-            {/* Sidebar */}
-            <SideBar/>
-
-            <Form onSubmit={handleSubmit} className="loginForm">
-              <div>
-                <Form.Group size="lg" controlId="email">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    autoFocus
+          {/* Sidebar */}
+          <SideBar/>
+            <div className="Auth-form-container">
+              <form className="Auth-form">
+                <div className="Auth-form-content">
+                  <h3 className="Auth-form-title">Sign in</h3>
+                  <div className="form-group mt-3">
+                    <label>Email address</label>
+                    <input
                     type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </Form.Group>
+                    className="form-control mt-1"
+                    placeholder="Enter email">
+                    </input>
 
-                <Form.Group size="lg" controlId="password">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                </Form.Group>
+                  </div>
 
-                <Button className="btn" size="lg" type="submit" disabled={!validateForm()}>
-                  Login
-                </Button>
-              </div>
-            </Form>
-          </div>
+                  
+
+                </div>
+
+              </form>
+
+            </div>
+
+        
+             
+
         </div>
+        
+
+                
+
+              
       </ProSidebarProvider>
     </>   
   );
