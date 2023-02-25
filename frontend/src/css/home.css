@@ -38,3 +38,12 @@
     text-decoration: "line-through";
 }
 
+label {
+    margin-right: 10px;
+}
+
+button {
+    margin-right: 10px;
+    height: 20px;
+}
+

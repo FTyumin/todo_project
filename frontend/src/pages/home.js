@@ -47,57 +47,62 @@ const Home = () => {
           <SideBar/>
           
           <div className="container">
+            <h1>ToDo app</h1>
             <div className="main">
-                <h1>Todo List</h1>
-                <input className="txt" value={input} onInput={(e) =>setInput(e.target.value)} />
-                <button className="btn taskCount" onClick={() => handleClick()}>Add</button>
+                
+                <form className="p-4 border border-3 rounded js-add-form">
+                  <h2 className="mb-4">Add a task</h2>
 
-                <div>
-                  <span className="taskCount">
-                    <b>Pending Tasks</b> {todoList.length - completedTaskCount}
-                  </span>
+                  <div className="form-group">
+                    <label htmlFor="title">Task Title</label>
+                    <input
+                      type="text"
+                      id="title"
+                      required
+                    />
+                  </div>
 
-                  <span className="taskCount">
-                    <b>Completed Tasks</b> {completedTaskCount}
-                  </span>
-                </div>
+                  <div className="form-group">
+                    <label htmlFor="due_date">Due Date</label>
+                    <input
+                      type="date"
+                      id="due_date"
+                      required
+                      min={new Date().toISOString().split('T')[0]}
+                    />
+                  </div>
 
-                <div>
-                <ul>
-                  {todoList.map((todo) => {
-                  return (
-                    <li
-                    className="list"
-                    complete = {todo.complete}
-                    id={todo.id}
-                    onClick={() => handleComplete(todo.id)}
-                    style={{
-                        listStyle: "none",
-                        textDecoration: todo.complete && "line-through",
-                    }}
-                    >
-                      {todo.task}
-                    </li>
-                  )
-                  })}
-                </ul>
+                      <button type="submit" className="btn btn-success">
+                        Add 
+                      </button>
+                    
+                </form>
               </div>
               <div>
-                <Table striped bordered hover>
-                  <thead>
-                    <tr>
-                      <th>Title</th>
-                      <th>Due Date</th>
-                      <th>Completed</th>
 
-                    </tr>
-                  </thead>
-                </Table>
+              <Table striped bordered hover style={{width: '500px', height: '300px', marginTop:'32%'}}>
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Due date</th>
+                    <th>Completed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Example</td>
+                    <td>27.02</td>
+                    <td>No</td>
+                  </tr>
+                 
+                </tbody>
+              </Table>
+
               </div>
             </div>            
           </div>
         </div>
-      </div>
+      
     </ProSidebarProvider>    
   )
 }
