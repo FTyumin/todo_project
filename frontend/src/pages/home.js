@@ -3,6 +3,7 @@ import { useState } from "react"
 import { ProSidebarProvider } from "react-pro-sidebar"
 import SideBar from "../components/sideBar"
 import "../css/home.css"
+import Table from 'react-bootstrap/Table';
 
 const Home = () => {
   const [input, setInput] = useState("");
@@ -80,6 +81,18 @@ const Home = () => {
                   )
                   })}
                 </ul>
+              </div>
+              <div>
+                <Table striped bordered hover>
+                  <thead>
+                    <tr>
+                      <th>Title</th>
+                      <th>Due Date</th>
+                      <th>Completed</th>
+
+                    </tr>
+                  </thead>
+                </Table>
               </div>
             </div>            
           </div>

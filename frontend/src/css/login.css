@@ -1,4 +1,4 @@
-.pageWrapper {
+.pageWrapper__login {
     height: 100vh;
     width: 100%;
 }
@@ -9,7 +9,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 .btn {
@@ -24,7 +23,7 @@
     padding-top: 30px;
     padding-bottom: 20px;
     border-radius: 8px;
-    background-color: antiquewhite;
+    background-color: #008080; 
 }
   
 .Auth-form-content {
@@ -45,3 +44,19 @@ label {
     font-weight: 600;
     color: rgb(34, 34, 34);
 }
+
+Table {
+    border: 2px solid forestgreen;
+    width: 800px;
+    height: 200px;
+}
+
+th {
+    border-bottom: 1px solid black;
+    
+  }
+    
+tr {
+    text-align: center;
+    
+  }
