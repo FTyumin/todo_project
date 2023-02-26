@@ -6,8 +6,9 @@ import "../css/home.css"
 import Table from 'react-bootstrap/Table';
 
 const Home = () => {
-  const [input, setInput] = useState("");
-  const [completedTaskCount, setCompletedTaskCount] = useState(0);
+  const [inputTitle, setInputTitle] = useState("")
+  const [inputDate, setInputDate] = useState("")
+  const [completedTaskCount, setCompletedTaskCount] = useState(0)
   const [todoList, setTodoList] = useState([])
 
   const handleClick = () => {
@@ -16,29 +17,24 @@ const Home = () => {
       ...prev,
       {
         id: id,
-        task: input,
+        task: inputTitle,
+        dueDate:inputDate,
         complete: false,
       }
     ])
-    setInput("")
+    setInputTitle("")
+    setInputDate("")
   }
 
-  const handleComplete = (id) => {
-    let list = todoList.map((task) => {
-      let item = {}
-      if (task.id === id) {
-        if (!task.complete){
-            setCompletedTaskCount(completedTaskCount + 1)
-        } 
-        else {
-            setCompletedTaskCount(completedTaskCount - 1)
-        }
-        item = { ...task, complete: !task.complete }
-      } else item = { ...task }
-      return item
-    })
-    setTodoList(list)
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    handleClick()
   }
+
+
+  
+
+ 
 
   return (
     <ProSidebarProvider>
@@ -50,7 +46,7 @@ const Home = () => {
             <h1>ToDo app</h1>
             <div className="main">
                 
-                <form className="p-4 border border-3 rounded js-add-form">
+                <form className="p-4 border border-3 rounded js-add-form" onSubmit={handleSubmit}>
                   <h2 className="mb-4">Add a task</h2>
 
                   <div className="form-group">
@@ -59,6 +55,7 @@ const Home = () => {
                       type="text"
                       id="title"
                       required
+                      onChange={(event) => setInputTitle(event.target.value)}
                     />
                   </div>
 
@@ -69,10 +66,13 @@ const Home = () => {
                       id="due_date"
                       required
                       min={new Date().toISOString().split('T')[0]}
+                      defaultValue={new Date().toISOString().split('T')[0]}
+                      value={inputDate}
+                      onChange={(event) => setInputDate(event.target.value)}
                     />
                   </div>
 
-                      <button type="submit" className="btn btn-success">
+                      <button type="submit" className="btn btn-success" >
                         Add 
                       </button>
                     
@@ -89,11 +89,13 @@ const Home = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Example</td>
-                    <td>27.02</td>
-                    <td>No</td>
-                  </tr>
+                  {todoList.map((task) => (
+                      <tr key={task.id}>
+                        <td>{task.task}</td>
+                        <td>{task.dueDate}</td>
+                        <td>{task.complete ? "Yes" : "No"}</td>
+                      </tr>
+                    ))}
                  
                 </tbody>
               </Table>
