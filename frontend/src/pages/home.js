@@ -3,12 +3,13 @@ import { useState } from "react"
 import { ProSidebarProvider } from "react-pro-sidebar"
 import SideBar from "../components/sideBar"
 import "../css/home.css"
-import Table from 'react-bootstrap/Table';
+import Table from 'react-bootstrap/Table'
+import axios from "axios"
 
 const Home = () => {
   const [inputTitle, setInputTitle] = useState("")
   const [inputDate, setInputDate] = useState("")
-  const [completedTaskCount, setCompletedTaskCount] = useState(0)
+  
   const [todoList, setTodoList] = useState([])
 
   const handleClick = () => {
@@ -31,7 +32,23 @@ const Home = () => {
     handleClick()
   }
 
+  const refreshList = () => {
+    axios.get("/api/todos/")
+    .then((res) => this.useState({todoList:res.data}))
+    .catch((err) => console.log(err))
+  }
 
+  const createItem = () => {
+    const item = {title: "", description:"", completed:false}
+
+    this.useState({activeItem:item})
+  }
+
+  const handleDelete =(item) => {
+    axios
+      .delete(`/api/todos/`,item)
+      .then((res) => this.refreshList())
+  }
   
 
  
@@ -65,14 +82,17 @@ const Home = () => {
                       type="date"
                       id="due_date"
                       required
-                      min={new Date().toISOString().split('T')[0]}
-                      defaultValue={new Date().toISOString().split('T')[0]}
+                      min={new Date().toISOString().split('T')[0]} 
                       value={inputDate}
                       onChange={(event) => setInputDate(event.target.value)}
                     />
                   </div>
 
-                      <button type="submit" className="btn btn-success" >
+                      <button 
+                      type="submit"
+                      className="btn btn-success"
+                      
+                        >
                         Add 
                       </button>
                     
