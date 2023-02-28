@@ -1,7 +1,8 @@
 import SideBar from "../components/sideBar"
 import "../css/login.css"
-import React, { useState } from "react"
+import React, { useState, useContext } from "react"
 import { ProSidebarProvider } from "react-pro-sidebar"
+import AuthContext from "../context/AuthContext"
 
 function Register() {
     const [username, setUsername] = useState("")
@@ -24,7 +25,7 @@ function Register() {
               {/* Sidebar */}
               <SideBar/>
                 <div className="login">
-                  <form className="Auth-form">
+                  <form className="Auth-form" onSubmit={handleSubmit}>
                     <div className="Auth-form-content">
                       <h3 className="Auth-form-title">Sign In</h3>
                       <div className="text-center">

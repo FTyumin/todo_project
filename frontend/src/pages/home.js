@@ -4,7 +4,7 @@ import { ProSidebarProvider } from "react-pro-sidebar"
 import SideBar from "../components/sideBar"
 import "../css/home.css"
 import Table from 'react-bootstrap/Table'
-import axios from "axios"
+import useAxios from "../utils/useAxios"
 
 const Home = () => {
   const [inputTitle, setInputTitle] = useState("")
@@ -32,11 +32,11 @@ const Home = () => {
     handleClick()
   }
 
-  const refreshList = () => {
-    axios.get("/api/todos/")
-    .then((res) => this.useState({todoList:res.data}))
-    .catch((err) => console.log(err))
-  }
+  // const refreshList = () => {
+  //   axios.get("/api/todos/")
+  //   .then((res) => this.useState({todoList:res.data}))
+  //   .catch((err) => console.log(err))
+  // }
 
   const createItem = () => {
     const item = {title: "", description:"", completed:false}
@@ -44,11 +44,11 @@ const Home = () => {
     this.useState({activeItem:item})
   }
 
-  const handleDelete =(item) => {
-    axios
-      .delete("/api/todos/",item)
-      .then((res) => this.refreshList())
-  }
+  // const handleDelete =(item) => {
+  //   axios
+  //     .delete("/api/todos/",item)
+  //     .then((res) => this.refreshList())
+  // }
   
 
  

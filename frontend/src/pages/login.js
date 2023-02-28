@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useContext } from "react"
 // ? https://www.npmjs.com/package/react-pro-sidebar
 import { ProSidebarProvider } from "react-pro-sidebar"
 import AuthContext from "../context/AuthContext"
@@ -31,7 +31,7 @@ function  Login() {
                   <h3 className="Auth-form-title">Sign In</h3>
                   <div className="text-center">
                     Already registered?{" "}
-                    <span className="link-primary" onClick={changeAuthMode}>
+                    <span className="link-primary">
                       Sign In
                     </span>
                   </div>
