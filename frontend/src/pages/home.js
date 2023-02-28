@@ -46,7 +46,7 @@ const Home = () => {
 
   const handleDelete =(item) => {
     axios
-      .delete(`/api/todos/`,item)
+      .delete("/api/todos/",item)
       .then((res) => this.refreshList())
   }
   
@@ -91,6 +91,7 @@ const Home = () => {
                       <button 
                       type="submit"
                       className="btn btn-success"
+                      
                       
                         >
                         Add 

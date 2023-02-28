@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from rest_framework import viewsets
 from rest_framework.views import APIView  
-from .serializers import TodoSerializer
+from .serializer import TodoSerializer
 from .models import Todo
 
 
