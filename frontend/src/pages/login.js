@@ -1,81 +1,31 @@
 import React, { useState } from "react"
 // ? https://www.npmjs.com/package/react-pro-sidebar
 import { ProSidebarProvider } from "react-pro-sidebar"
+import AuthContext from "../context/AuthContext"
 
 import SideBar from "../components/sideBar"
 import "../css/login.css"
 
-export default function Login() {
+function  Login() {
+  const { loginUser } = useContext(AuthContext);
+  const handleSubmit = e => {
+    e.preventDefault();
+    const username = e.target.username.value;
+    const password = e.target.password.value;
+    username.length > 0 && loginUser(username, password);
+  };
 
+  
 
-  let [authMode, setAuthMode] = useState("signin")
-
-  const changeAuthMode = () => {
-    setAuthMode(authMode === "signin" ? "signup" : "signin")
-  }
-
-  if(authMode ==="signin"){
-
-    
-    return (
-      <> 
-        <ProSidebarProvider>
-          <div className="pageWrapper__login">
-            
-          
-    
-            {/* Sidebar */}
-            <SideBar/>
-              <div className="login">
-                <form className="Auth-form">
-                  <div className="Auth-form-content">
-                    <h3 className="Auth-form-title">Sign in</h3>
-                    <div className="text-center">
-                      Not registered? {""}
-                      <span className="link-primary" onClick={changeAuthMode}>
-                        Sign Up
-                      </span>
-                    </div>
-                    
-                    <div className="form-group mt-3">
-                      <label>Password</label>
-                      <input
-                        type="password"
-                        className="form-control mt-1"
-                        placeholder="Enter password"
-                        />
-                    </div>
-                    <div className="d-grid gap-2 mt-3">
-                      <button type="submit" className="btn btn-primary">
-                        Submit
-                      </button>
-                    </div>
-
-                    
-
-                  </div>
-                </form>
-              </div>
-          </div>
-        
-
-                
-
-              
-        </ProSidebarProvider>
-      </>   
-    )
-  }
+  
   return(
     <> 
       <ProSidebarProvider>
         <div className="pageWrapper__login">
             
-          
-    
           {/* Sidebar */}
           <SideBar/>
-            <div className="login">
+            <div className="login" onSubmit={handleSubmit}>
               <form className="Auth-form">
                 <div className="Auth-form-content">
                   <h3 className="Auth-form-title">Sign In</h3>
@@ -88,30 +38,25 @@ export default function Login() {
                   <div className="form-group mt-3">
                     <label>Username</label>
                     <input
-                      type="email"
+                      type="text"
                       className="form-control mt-1"
                       placeholder="e.g Jane Doe"
+                      id="username"
                     />
                   </div>
-                  <div className="form-group mt-3">
-                    <label>Email address</label>
-                    <input
-                      type="email"
-                      className="form-control mt-1"
-                      placeholder="Email Address"
-                    />
-                  </div>
+                 
                   <div className="form-group mt-3">
                     <label>Password</label>
                     <input
                       type="password"
                       className="form-control mt-1"
                       placeholder="Password"
+                      id="password"
                     />
                   </div>
                   <div className="d-grid gap-2 mt-3">
                     <button type="submit" className="btn btn-primary">
-                      Submit
+                      Login
                     </button>
                   </div>
                  
@@ -123,3 +68,5 @@ export default function Login() {
   </>
   )
 }
+
+export default Login

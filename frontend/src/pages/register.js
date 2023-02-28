@@ -62,18 +62,17 @@ function Register() {
                           id="confirm-password"
                           className="form-control mt-1"
                           placeholder="Confirm Password"
-                          onChange={e => setPassword(e.target.value)}
+                          onChange={e => setPassword2(e.target.value)}
                           required
                         />
                       </div>
+                      <p>{password !== password2 ? "Passwords don't match " : ""}</p>
                       <div className="d-grid gap-2 mt-3">
                         <button type="submit" className="btn btn-primary">
-                          Submit
+                          Register
                         </button>
                       </div>
-                      <p className="text-center mt-2">
-                        Forgot <a href="#">password?</a>
-                      </p>
+                    </div>
                     </div>
                   </form>
                 </div>
